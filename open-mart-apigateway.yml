@@ -1,0 +1,14 @@
+
+fileName: open-mart-apigateway.yml
+
+---
+spring:
+  profiles: imac
+
+---
+spring:
+  profiles: macbook
+  
+---
+spring:
+  profiles: stg,prd
