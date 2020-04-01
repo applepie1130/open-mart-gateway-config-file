@@ -5,6 +5,15 @@ management:
       exposure:
         include: "refresh, env"
 
+zuul:
+  routes:
+  open-mart-api:
+    path: /v1/mart/**
+    url: http://localhost:8082
+    stripPrefix: false
+  host:
+    connect-timeout-millis: 3000
+    socket-timeout-millis: 10000    
 ---
 spring:
   profiles: imac
@@ -20,17 +29,6 @@ logging:
       apiserver:
         api: DEBUG
   path: "/Users/sungjun.kim/tank0/logs"
-
-zuul:
-  routes:
-  open-mart-api:
-      path: /v1/mart/**
-      url: http://localhost:8082
-      stripPrefix: false
-  host:
-    connect-timeout-millis: 3000
-    socket-timeout-millis: 10000
-
 ---
 spring:
   profiles: macbook
@@ -46,16 +44,6 @@ logging:
       apiserver:
         api: DEBUG
   path: "/tank0/logs"
-
-zuul:
-  routes:
-  open-mart-api:
-      path: /v1/mart/**
-      url: http://localhost:8082
-      stripPrefix: false
-  host:
-    connect-timeout-millis: 3000
-    socket-timeout-millis: 10000
 ---
 spring:
   profiles: stg,prd
@@ -75,9 +63,9 @@ logging:
 zuul:
   routes:
   open-mart-api:
-      path: /v1/mart/**
-      url: http://52.79.138.30:8082
-      stripPrefix: false
+    path: /v1/mart/**
+    url: http://52.79.138.30:8082
+    stripPrefix: false
   host:
     connect-timeout-millis: 3000
     socket-timeout-millis: 10000
